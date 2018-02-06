@@ -7,21 +7,29 @@ The server setup is only compatible with Minecraft: __Java Edition__.
 
 ### Vagrant Provisioning
 
+Clone the project with:
+`git clone https://github.com/throthe/vagrant-minecraft/` 
+
+Please review the Vagrantfile to change the network bridge which will be different. Make your additioanl changed to the configuration like used RAM, CPU, name of the virtual machine. After that, run 
+
+`vagrant up & vagrant provision`
+
+The __default login__ is: vagrant / vagrant 
+
 #### Directory-Structure of the project
 
 vagrant-minecraft/  
 ├── data/  
-│   ├── bootstrap.css  
-│   ├── bootstrap.min.css  
-│   ├── bootstrap-theme.css  
-│   └── bootstrap-theme.min.css  
+│   ├── minecraft-server.conf (obsolete)  
+│   ├── minecraft-server.service  
 ├── provision/  
-│   ├── bootstrap.js  
-│   └── bootstrap.min.js  
+│   ├── base.sh  
+│   └── jdk.sh  
+│   └── minecraft.sh  
 ├── README.md  
 └── Vagrantfile  
 
-The Vagrant box is set with 
+The Vagrant box is set with 4GB RAM with 1 cpu-core. The Network settings should be reviewed since the bidge adapter will be different. 
 
 ### Run Server
 
