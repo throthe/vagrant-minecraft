@@ -64,7 +64,7 @@ To make a new world available:
 1. Store your downloaded map in the `data` directory from this repository. This directory will be mounted to `vagrant_data`
 2. Unzip the world (if packed)
 4. Copy the new world into the server folder: `cp -r /vagrant_data/<world-name> /srv/minecraft-server/<world-name>`
-5. Change the world in the `server.properties` with: `sudo vi /srv/minecraft/server.properties` and fine the line for __level-name__ and change it the the new world name.  
+5. Change the world in the `server.properties` with: `sudo vi /srv/minecraft/server.properties` and find the line for __level-name__ and change it the the new world name.  
 
 
 ## ToDo
@@ -77,4 +77,4 @@ To make a new world available:
 * Stop: `sudo service minecraft-server stop`
 * Restart: `sudo service minecraft-server restart`
 
-- [ ] XX
+- [ ] Try minecraft for education to create intelligent NPC's
