@@ -10,11 +10,7 @@ The server setup is only compatible with Minecraft: __Java Edition__.
 Clone the project with:
 `git clone https://github.com/throthe/vagrant-minecraft/` 
 
-Please review the Vagrantfile to change the network bridge which will be different. Make your additioanl changed to the configuration like used RAM, CPU, name of the virtual machine. After that, run 
-
-`vagrant up & vagrant provision`
-
-The __default login__ is: vagrant / vagrant 
+Please review the Vagrantfile to change the network bridge which will be different. Make your additioanl changed to the configuration like used RAM, CPU, name of the virtual machine. After that, run `vagrant up & vagrant provision`. This should provision the server, installing the openJDK and the minecraft-server (1.12.1) into `/srv/minecraft-server/`. The default login into the machine is: `vagrant / vagrant`. 
 
 #### Directory-Structure of the project
 
