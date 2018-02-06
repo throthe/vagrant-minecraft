@@ -6,17 +6,21 @@ The server setup is only compatible with Minecraft: __Java Edition__.
 
 ### Run Server
 
-`java -Xmx1024M -Xms1024M -jar minecraft_server.1.12.2.jar nogui`
+`java -Xmx1024M -Xms2048M -jar minecraft_server.1.12.2.jar nogui`
 
-Should you want to start the server with it's graphical user interface you can leave out the "nogui" part.
+Should you want to start the server with it's graphical user interface you can leave out the `nogui` part.
 
-Paramenter:
+:exclamation: If you run your minecraft server the very first time, additional files are created within 
+the minecraft-server directory. The minecraft-server will come up, but terminate with the message *You need to agree to the EULA in order to run the server. Go to eula.txt for more info*. Open the EULA with `sudo vi eula.txt` and change `eula=false` to `eula=true`.
+Save and exit the file and run the server with the above command again. Your minecraft-server should successfully run now.  
 
-Xms = initial memory size
-Xmx = maximum memory size
 
-Add in -d64 if your server is on a 64-bit Solaris system using 64-bit Java.
-Add -o true to tell the server to run in online mode so only authenticated users can join
+#### Paramenter
+
+* -Xms = initial memory size (i.e. `-Xmx1024M`)
+* -Xmx = maximum memory size (i.e. `-Xms2048M`)
+* -d64 = using 64-bit Java
+* -o = run in online mode so only authenticated users can join
 
 To start the service :
 
@@ -28,13 +32,13 @@ systemctl status minecraft-server.service
 ### Import/Export worlds created with singleplayer mode
 
 To export maps, you need to go into your minecraft saves directory. 
-* Open `C:\Users\<user>\AppData\Roaming\.minecraft\saves directory`
-* Find your offline created world content included in a directory with the given name
-* zip the directory
-* publish it ...
+1. Open `C:\Users\<user>\AppData\Roaming\.minecraft\saves directory`
+2. Find your offline created world content included in a directory with the given name
+3. zip the directory
+4. publish it ...
 
 To import maps, you need to download a world from any source (usually zip-packed).
-* Copy the zip achieve to `C:\Users\<user>\AppData\Roaming\.minecraft\saves`
-* Unzip the achieve
-* Open Minecraft-client and select Singleplayer
-* Select your new world
+1. Copy the zip achieve to `C:\Users\<user>\AppData\Roaming\.minecraft\saves`
+2. Unzip the achieve
+3. Open Minecraft-client and select Singleplayer
+4. Select your new world
