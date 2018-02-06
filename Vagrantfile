@@ -4,7 +4,7 @@ Vagrant.configure(2) do |config|
   # Ubuntu 16.04
   config.vm.box = 'ubuntu/xenial64'
   config.vm.box_check_update = false
-  config.vm.network :public_network, :bridge => "en0: Ethernet"
+  # config.vm.network :public_network, :bridge => "en0: Ethernet"
 
   # Share an additional folder to the guest VM
   config.vm.synced_folder 'data', '/vagrant_data'

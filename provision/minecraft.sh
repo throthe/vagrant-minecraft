@@ -25,4 +25,5 @@ sudo adduser minecraft minecraft
 # in /srv/minecraft-server
 sudo chown -R minecraft.minecraft /srv/minecraft-server
 
-sudo mv -i /vagrant_data/minecraft-server.conf /etc/init/minecraft-server.conf
+sudo cp -n /vagrant_data/minecraft-server.conf /etc/init/minecraft-server.conf
+sudo initctl reload-configuration
