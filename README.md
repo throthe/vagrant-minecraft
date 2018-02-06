@@ -9,17 +9,17 @@ The server setup is only compatible with Minecraft: __Java Edition__.
 
 #### Directory-Structure of the project
 
-vagrant-minecraft/
-├── data/
-│   ├── bootstrap.css
-│   ├── bootstrap.min.css
-│   ├── bootstrap-theme.css
-│   └── bootstrap-theme.min.css
-├── provision/
-│   ├── bootstrap.js
-│   └── bootstrap.min.js
-├── README.md
-└── Vagrantfile
+vagrant-minecraft/  
+├── data/  
+│   ├── bootstrap.css  
+│   ├── bootstrap.min.css  
+│   ├── bootstrap-theme.css  
+│   └── bootstrap-theme.min.css  
+├── provision/  
+│   ├── bootstrap.js  
+│   └── bootstrap.min.js  
+├── README.md  
+└── Vagrantfile  
 
 The Vagrant box is set with 
 
