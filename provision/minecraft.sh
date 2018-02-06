@@ -11,7 +11,7 @@ MINECRAFT_SERVER_VERSION="1_12_2"
 if [ ! -f /vagrant_data/minecraft_server.1.12.2.jar ]; then
   echo 'Downloading Minecraft Server' .$MINECRAFT_SERVER_VERSION.;
   curl -fsSL --output /vagrant_data/minecraft_server.1.12.2.jar $MINECRAFT_SERVER_URL
-  sudo mv -i /vagrant_data/minecraft_server.1.12.2.jar /srv/minecraft_server.jar
+  sudo cp -n /vagrant_data/minecraft_server.1.12.2.jar /srv/minecraft_server/minecraft_server.jar
 fi
 
 # set up a user and group for minecraft so that it doesn't run as root
@@ -25,5 +25,4 @@ sudo adduser minecraft minecraft
 # in /srv/minecraft-server
 sudo chown -R minecraft.minecraft /srv/minecraft-server
 
-sudo cp -n /vagrant_data/minecraft-server.conf /etc/init/minecraft-server.conf
-sudo initctl reload-configuration
+sudo cp -n /vagrant_data/minecraft-server.service /etc/systemd/system/minecraft-server.service
