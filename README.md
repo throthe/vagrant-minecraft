@@ -14,3 +14,9 @@ Xmx = maximum memory size
 
 Add in -d64 if your server is on a 64-bit Solaris system using 64-bit Java.
 Add -o true to tell the server to run in online mode so only authenticated users can join
+
+To start the service :
+
+sudo service minecraft-server start
+sudo systemctl enable minecraft-server
+systemctl status minecraft-server.service 
