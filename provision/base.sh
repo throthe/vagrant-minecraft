@@ -14,5 +14,6 @@ sed \
 software-properties-common \
 tar \
 unzip \
+upstart \
 wget \
 zip
