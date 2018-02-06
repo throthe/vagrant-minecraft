@@ -25,15 +25,4 @@ sudo adduser minecraft minecraft
 # in /srv/minecraft-server
 sudo chown -R minecraft.minecraft /srv/minecraft-server
 
-if [ ! -f /etc/init/minecraft-server.conf ]; then
-    printf "# description 'start and stop the minecraft-server'" > /etc/init/minecraft-server.conf;
-    printf "start on runlevel [2345]" > /etc/init/minecraft-server.conf;
-    printf "stop on runlevel [^2345]" > /etc/init/minecraft-server.conf;
-    printf "console log" > /etc/init/minecraft-server.conf;
-    printf "chdir /srv/" > /etc/init/minecraft-server.conf;
-    printf "setuid minecraft" > /etc/init/minecraft-server.conf;
-    printf "setgid minecraft" > /etc/init/minecraft-server.conf;
-    printf "respawn" > /etc/init/minecraft-server.conf;
-    printf "respawn limit 20 5" > /etc/init/minecraft-server.conf;
-    printf "xec /usr/bin/java -Xms1536M -Xmx2048M -jar minecraft_server.jar nogui" > /etc/init/minecraft-server.conf;
-fi;
+sudo mv -i /vagrant_data/minecraft-server.conf /etc/init/minecraft-server.conf
