@@ -7,4 +7,4 @@ sudo add-apt-repository ppa:webupd8team/java
 # Update apt-get
 sudo apt-get update
 
-sudo apt-get install openjdk-8-jre
+sudo DEBIAN_FRONTEND=noninteractive apt-get -y install openjdk-8-jre
