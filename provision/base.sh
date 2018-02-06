@@ -9,11 +9,11 @@ curl \
 gzip \
 lsb-release \
 man-db \
+net-tools \
 patch \
 sed \
 software-properties-common \
 tar \
 unzip \
-upstart \
 wget \
 zip
