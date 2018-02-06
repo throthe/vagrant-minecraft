@@ -13,7 +13,7 @@ if [ ! -f /vagrant_data/minecraft_server.1.12.2.jar ]; then
   curl -fsSL --output /vagrant_data/minecraft_server.1.12.2.jar $MINECRAFT_SERVER_URL
 fi
 
-sudo mkdir /srv/minecraft_server
+sudo mkdir /srv/minecraft-server
 sudo cp -f /vagrant_data/minecraft_server.1.12.2.jar /srv/minecraft-server/
 
 # set up a user and group for minecraft so that it doesn't run as root
