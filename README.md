@@ -78,3 +78,16 @@ To make a new world available:
 * Restart: `sudo service minecraft-server restart`
 
 - [ ] Try minecraft for education to create intelligent NPC's
+- [ ] Multi server world plugin
+
+## Useful WorldEdit commands
+
+* //set <material>
+* //undo
+* //wand
+* //replace
+* //copy
+* //paste
+
+### Download links:
+6.1.7.3 for MC 1.12.1 https://dev.bukkit.org/projects/worldedit/files/2460562
