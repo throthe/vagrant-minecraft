@@ -29,7 +29,7 @@ The Vagrant box is set with 4GB RAM with 1 cpu-core. The Network settings should
 
 ### Run Server
 
-`java -Xmx1024M -Xms2048M -jar minecraft_server.1.12.2.jar nogui`
+`java -Xms1024M -Xmx2048M -jar minecraft_server.1.12.2.jar nogui`
 
 Should you want to start the server with it's graphical user interface you can leave out the `nogui` part.
 
