@@ -80,6 +80,11 @@ To make a new world available:
 - [ ] Try minecraft for education to create intelligent NPC's
 - [ ] Multi server world plugin
 
+## Useful Links:
+
+https://www.spigotmc.org/wiki/what-is-spigot-craftbukkit-bukkit-vanilla-forg/
+https://www.spigotmc.org/threads/bukkit-craftbukkit-spigot-1-8.36598/
+
 ## Useful WorldEdit commands
 
 * //set <material>
