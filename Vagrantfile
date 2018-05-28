@@ -20,9 +20,10 @@ Vagrant.configure(2) do |config|
   end
 
   # Provisioning
-  config.vm.provision "shell", inline: "sudo apt-get update"
+  config.vm.provision 'shell', inline: 'sudo apt-get update'
   config.vm.provision 'shell', privileged: false, path: 'provision/base.sh', name: 'base.sh'
   config.vm.provision 'shell', privileged: false, path: 'provision/jdk.sh', name: 'jdk.sh'
   config.vm.provision 'shell', privileged: false, path: 'provision/minecraft.sh', name: 'minecraft.sh'
+  config.vm.provision 'shell', privileged: false, path: 'provision/minecraft-spigot.sh', name: 'minecraft-spigot.sh'
 
 end
