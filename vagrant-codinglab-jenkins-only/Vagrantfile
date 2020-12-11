@@ -1,0 +1,58 @@
+
+# KUDOS to: https://github.com/ricardozanini/vagrant-alm
+
+# REQUIRE vagrant-hostmanager, install: vagrant plugin install vagrant-hostmanager
+
+# All Vagrant configuration is done below. The "2" in Vagrant.configure
+# configures the configuration version (we support older styles for
+# backwards compatibility). Please don't change it unless you know what
+# you're doing.
+
+Vagrant.configure("2") do |config|
+  # The most common configuration options are documented and commented below.
+  # For a complete reference, please see the online documentation at
+  # https://docs.vagrantup.com.
+
+  # Every Vagrant development environment requires a box. You can search for
+  # boxes at https://app.vagrantup.com/boxes/search
+  config.vm.box = "centos/7"
+  #config.vm.box = "ubuntu/bionic64"  # ubuntu 18.04
+
+  # FIX related to https://stackoverflow.com/questions/46150672/vagrant-wsl-rsync-and-ssh-permission-error
+  config.ssh.insert_key = false
+
+  # let's use vbox
+  config.vm.define "jenkins_box" do |jenkins|
+    config.vm.hostname = "jenkins.local"
+      jenkins.vm.network :private_network, ip: "192.168.56.3"
+      jenkins.vm.provider :virtualbox do |v|
+        v.gui = false
+        v.memory = 2048
+ #       v.customize [ "modifyvm", :id, "--uartmode1", "disconnected" ]  # needed for Ubuntu, otherwise: https://github.com/joelhandwell/ubuntu_vagrant_boxes/issues/1
+    end
+  end
+
+  config.vm.define "sonar_box" do |sonar|
+    config.vm.hostname = "sonar.local"
+      sonar.vm.network :private_network, ip: "192.168.56.4"
+      sonar.vm.provider :virtualbox do |v|
+        v.gui = false
+        v.memory = 2048
+#        v.customize [ "modifyvm", :id, "--uartmode1", "disconnected" ] # needed for Ubuntu, otherwise: https://github.com/joelhandwell/ubuntu_vagrant_boxes/issues/1
+    end
+  end
+
+  config.vm.provision "ansible" do |ansible|
+      ansible.playbook = "ansible/alm.yml"
+      ansible.groups = {
+          "jenkins_server" => ["jenkins_box"],
+          "sonar_server" => ["sonar_box"]
+      }
+  end
+
+  if Vagrant.has_plugin?("vagrant-hostmanager")
+      config.hostmanager.enabled = true
+      config.hostmanager.manage_host = true
+      config.hostmanager.manage_guest = true
+  end
+end

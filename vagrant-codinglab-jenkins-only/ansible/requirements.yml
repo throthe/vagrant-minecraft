@@ -1,0 +1,17 @@
+#- src: geerlingguy.java
+- src: ansiblebit.oracle-java
+- src: geerlingguy.jenkins
+#- src: geerlingguy.sonar
+- src: olo-dw.ansible-role-sonar
+- src: geerlingguy.mysql
+- src: wtanaka.unzip
+#- src: savoirfairelinux.nexus3-oss
+- src: geerlingguy.git
+#- src: tecris.maven
+#- src: geerlingguy.repo-epel
+- src: geerlingguy.ansible
+#- src: lean_delivery.sonarqube
+#- src: lean_delivery.java
+#- src: ANXS.postgresql
+#- src: jdauphant.ssl-certs
+#- src: nginxinc.nginx

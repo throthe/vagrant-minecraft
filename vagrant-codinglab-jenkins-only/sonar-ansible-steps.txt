@@ -1,0 +1,33 @@
+- added Group value with {{sonar_process_user}} into sonar.unit.j2
+
+- added reload systemctl right before service starts:
+	- name: Reload systemctl
+		shell: systemctl daemon-reload
+		
+- added reload settings from all system configuration files before service starts:
+	- name: Reload settings from all system configuration files
+		shell: sysctl --system
+		
+- added Increase max file descriptors for current session
+	- name: Increase max file descriptors for current session
+		shell: "ulimit -n 65536"
+		
+- added LimitNOFILE=infinity into sonar.unit.j2
+
+- added LimitMEMLOCK=infinity into sonar.unit.j2
+
+- [manually] create file 50-fs.conf in /etc/sysctl.d with:
+	fs.file-max=65536
+	
+- [manually] create file 91-nofiles.conf in /etc/security/limits.daemon-reload with:
+		*     soft nofile 65536
+		*     hard nofile 65536
+
+
+Links: 
+https://serverfault.com/questions/628610/increasing-nproc-for-processes-launched-by-systemd-on-centos-7
+https://dev.mysql.com/doc/refman/5.6/en/validate-password-options-variables.html#sysvar_validate_password_length
+https://github.com/geerlingguy/ansible-role-mysql/issues
+https://github.com/ansiblebit/oracle-java
+https://github.com/olo-dw/ansible-role-sonar/blob/master/tasks/main.yml
+https://github.com/geerlingguy/ansible-role-mysql/issues/222

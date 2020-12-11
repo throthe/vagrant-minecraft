@@ -1,0 +1,15 @@
+---
+sonar_mysql_username: sonar
+sonar_mysql_password: sonarsonar
+
+sonar_mysql_host: localhost
+sonar_mysql_port: "3306"
+sonar_mysql_database: sonar
+
+sonar_mysql_allowed_hosts:
+  - 127.0.0.1
+  - ::1
+  - localhost
+
+sonar_download_url: https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.8.zip
+sonar_version_directory: sonarqube-7.8

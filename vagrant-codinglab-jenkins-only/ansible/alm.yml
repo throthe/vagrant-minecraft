@@ -1,0 +1,51 @@
+---
+# requirements install from requirements.yml file
+- name: Install Roles from Ansible-Galaxy
+  hosts: all
+  connection: local
+  tasks:
+    - name: installing required ansible-galaxy roles
+      command: "ansible-galaxy install --ignore-errors -r requirements.yml"
+
+# Let's rock on ALM
+- name: Deploy Jenkins CI
+  hosts: jenkins_server
+  remote_user: "{{ ansible_ssh_user | default('vagrant') }}"
+  become: yes
+
+  roles:
+    - geerlingguy.repo-epel
+    - geerlingguy.jenkins
+    - geerlingguy.git
+    - geerlingguy.ansible
+
+- name: Deploy Sonar Server
+  hosts: sonar_server
+  remote_user: "{{ ansible_ssh_user | default('vagrant') }}"
+  become: yes
+  
+  pre_tasks:
+
+    - name: Install the MySQL repo.
+      yum:
+        name: http://repo.mysql.com/mysql57-community-release-el7-9.noarch.rpm
+        state: present
+      when: ansible_os_family == "RedHat"
+  
+    - name: Override variables for MySQL (RedHat).
+      set_fact:
+        mysql_daemon: mysqld
+        mysql_packages: ['mysql-server']
+        mysql_log_error: /var/log/mysqld.err
+        mysql_syslog_tag: mysqld
+        mysql_pid_file: /var/run/mysqld/mysqld.pid
+        mysql_socket: /var/lib/mysql/mysql.sock
+      when: ansible_os_family == "RedHat"
+
+  roles:
+    - ansiblebit.oracle-java
+    - wtanaka.unzip
+    - ansible-role-mysql
+    - ansible-role-sonarqube
+      
+    
